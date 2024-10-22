@@ -3,6 +3,7 @@ package com.example.Kochbuch.entities;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -17,13 +18,16 @@ public class Recipe {
     private String name;
     @NotBlank
     private String description;
-    //@OneToMany(cascade = CascadeType.PERSIST)
-    private Map<Ingredient,Integer> listIngredients = new HashMap<>();
 
-    public Recipe(long id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+    @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
+    private List<RecipeIngredients> ingredients = new ArrayList<>();
+
+    public List<RecipeIngredients> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<RecipeIngredients> ingredients) {
+        this.ingredients = ingredients;
     }
 
     public long getId() {
@@ -44,10 +48,6 @@ public class Recipe {
 
     public void setDescription(@NotBlank String description) {
         this.description = description;
-    }
-
-    public Map<Ingredient, Integer> getListIngredients() {
-        return listIngredients;
     }
 
 }

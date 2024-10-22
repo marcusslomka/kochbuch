@@ -1,10 +1,8 @@
 package com.example.Kochbuch.entities;
 
 import com.example.Kochbuch.enums.CategorieIngredients;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.example.Kochbuch.services.RecipeService;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
 @Entity
@@ -18,4 +16,19 @@ public class Ingredient {
     @NotBlank
     private CategorieIngredients categorie;
 
+    public @NotBlank String getName() {
+        return name;
+    }
+
+    public void setName(@NotBlank String name) {
+        this.name = name;
+    }
+
+    public @NotBlank CategorieIngredients getCategorie() {
+        return categorie;
+    }
+
+    public void setCategorie(@NotBlank CategorieIngredients categorie) {
+        this.categorie = categorie;
+    }
 }
