@@ -14,9 +14,7 @@ public class Recipe {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
-    private String name;
-    @NotBlank
+    private String title;
     private String description;
 
     @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL)
@@ -34,19 +32,19 @@ public class Recipe {
         return id;
     }
 
-    public @NotBlank String getName() {
-        return name;
+    public @NotBlank String getTitle() {
+        return title;
     }
 
-    public void setName(@NotBlank String name) {
-        this.name = name;
+    public void setTitle(@NotBlank String title) {
+        this.title = title;
     }
 
-    public @NotBlank String getDescription() {
+    public  String getDescription() {
         return description;
     }
 
-    public void setDescription(@NotBlank String description) {
+    public void setDescription(String description) {
         this.description = description;
     }
 

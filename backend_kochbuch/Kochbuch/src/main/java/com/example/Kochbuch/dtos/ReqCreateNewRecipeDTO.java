@@ -5,14 +5,13 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.util.List;
 
-public record ReqCreateNewRecipe(
+public record ReqCreateNewRecipeDTO(
         @NotBlank
-        String name,
+        String title,
         @NotBlank
         String description,
-        @NotBlank
-        List<RecipeIngredients> ingredients
-) {
+        List<RecipeIngredientDTO> ingredients
 
+) {
 }
 
