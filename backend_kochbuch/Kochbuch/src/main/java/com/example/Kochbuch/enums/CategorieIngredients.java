@@ -6,6 +6,7 @@ public enum CategorieIngredients {
     Fish,
     Fruits,
     Oil,
-    Flour
+    Flour,
+    Fluid
 
 }

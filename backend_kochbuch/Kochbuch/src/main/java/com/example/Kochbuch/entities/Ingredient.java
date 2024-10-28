@@ -12,9 +12,10 @@ public class Ingredient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @NotBlank
+    @Column(unique = true)
     private String name;
-    @NotBlank
     private CategorieIngredients categorie;
+
 
     public @NotBlank String getName() {
         return name;
@@ -24,11 +25,11 @@ public class Ingredient {
         this.name = name;
     }
 
-    public @NotBlank CategorieIngredients getCategorie() {
+    public CategorieIngredients getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(@NotBlank CategorieIngredients categorie) {
+    public void setCategorie( CategorieIngredients categorie) {
         this.categorie = categorie;
     }
 }
